@@ -23,23 +23,19 @@ import org.eobjects.analyzer.util.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@TransformerBean("Groovy transformer")
+@TransformerBean("Groovy transformer (simple)")
 @Categorized(ScriptingCategory.class)
-@Description("Perform almost any kind of data transformation with the use of the Groovy language.")
-public class GroovyTransformer implements Transformer<String> {
+@Description("Perform a data transformation with the use of the Groovy language.")
+public class GroovySimpleTransformer implements Transformer<String> {
 
-    private static final Logger logger = LoggerFactory.getLogger(GroovyTransformer.class);
+    private static final Logger logger = LoggerFactory.getLogger(GroovySimpleTransformer.class);
 
     @Configured(order = 1)
     InputColumn<?>[] inputs;
 
-    @Configured(order = 2)
-    @Description("Execute the transformation code in a concurrent manner?")
-    boolean concurrent = true;
-
     @Configured(order = 3)
     @StringProperty(multiline = true, mimeType = { "application/x-groovy", "text/x-groovy", "text/groovy" })
-    String code = "class Transformer {\n  void initialize() {\n    //optional initializer\n  }\n\n  String transform(map) {\n    return map.toString()\n  }\n}";;
+    String code = "class Transformer {\n\tString transform(map) {\n\t\t// Example: Finds the first value of a column with the word 'NAME' in it\n\t\treturn \"Hello \" + map.find{\n\t\t\tit.key.toUpperCase().indexOf(\"NAME\")!=-1\n\t\t}?.value\n\t}\n}";
 
     private GroovyObject _groovyObject;
     private GroovyClassLoader _groovyClassLoader;
@@ -51,7 +47,6 @@ public class GroovyTransformer implements Transformer<String> {
         logger.debug("Compiling Groovy code:\n{}", code);
         final Class<?> groovyClass = _groovyClassLoader.parseClass(code);
         _groovyObject = (GroovyObject) ReflectionUtils.newInstance(groovyClass);
-        _groovyObject.invokeMethod("initialize", new Object[] {});
     }
 
     @Close
@@ -72,13 +67,8 @@ public class GroovyTransformer implements Transformer<String> {
         }
         final Object[] args = new Object[] { map };
         final Object result;
-        if (concurrent) {
-            result = _groovyObject.invokeMethod("transform", args);
-        } else {
-            synchronized (_groovyObject) {
-                result = _groovyObject.invokeMethod("transform", args);
-            }
-        }
+        result = _groovyObject.invokeMethod("transform", args);
+
         logger.debug("Transformation result: {}", result);
         final String stringResult = ConvertToStringTransformer.transformValue(result);
         return new String[] { stringResult };

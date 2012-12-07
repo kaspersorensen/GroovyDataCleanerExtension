@@ -6,10 +6,10 @@ import org.eobjects.analyzer.data.MockInputRow;
 
 import junit.framework.TestCase;
 
-public class GroovyTransformerTest extends TestCase {
+public class GroovySimpleTransformerTest extends TestCase {
 
     public void testScenario() throws Exception {
-        GroovyTransformer transformer = new GroovyTransformer();
+        GroovySimpleTransformer transformer = new GroovySimpleTransformer();
 
         InputColumn<String> col1 = new MockInputColumn<String>("foo");
         InputColumn<String> col2 = new MockInputColumn<String>("bar");
