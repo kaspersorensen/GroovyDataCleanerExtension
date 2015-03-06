@@ -6,27 +6,28 @@ import groovy.lang.GroovyObject;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.eobjects.analyzer.beans.api.Categorized;
-import org.eobjects.analyzer.beans.api.Close;
-import org.eobjects.analyzer.beans.api.Configured;
-import org.eobjects.analyzer.beans.api.Description;
-import org.eobjects.analyzer.beans.api.Initialize;
-import org.eobjects.analyzer.beans.api.OutputColumns;
-import org.eobjects.analyzer.beans.api.StringProperty;
-import org.eobjects.analyzer.beans.api.Transformer;
-import org.eobjects.analyzer.beans.api.TransformerBean;
-import org.eobjects.analyzer.beans.categories.ScriptingCategory;
-import org.eobjects.analyzer.beans.convert.ConvertToStringTransformer;
-import org.eobjects.analyzer.data.InputColumn;
-import org.eobjects.analyzer.data.InputRow;
-import org.eobjects.analyzer.util.ReflectionUtils;
+import javax.inject.Named;
+
+import org.datacleaner.api.Categorized;
+import org.datacleaner.api.Close;
+import org.datacleaner.api.Configured;
+import org.datacleaner.api.Description;
+import org.datacleaner.api.Initialize;
+import org.datacleaner.api.InputColumn;
+import org.datacleaner.api.InputRow;
+import org.datacleaner.api.OutputColumns;
+import org.datacleaner.api.StringProperty;
+import org.datacleaner.api.Transformer;
+import org.datacleaner.components.categories.ScriptingCategory;
+import org.datacleaner.components.convert.ConvertToStringTransformer;
+import org.datacleaner.util.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@TransformerBean("Groovy transformer (simple)")
+@Named("Groovy transformer (simple)")
 @Categorized(ScriptingCategory.class)
 @Description("Perform a data transformation with the use of the Groovy language.")
-public class GroovySimpleTransformer implements Transformer<String> {
+public class GroovySimpleTransformer implements Transformer {
 
     private static final Logger logger = LoggerFactory.getLogger(GroovySimpleTransformer.class);
 
