@@ -80,7 +80,7 @@ public class GroovyAdvancedTransformer implements Transformer {
         for (int i = 0; i < outputFields; i++) {
             names[i] = "Groovy output (" + (i + 1) + ")";
         }
-        return new OutputColumns(names);
+        return new OutputColumns(String.class, names);
     }
 
     public String[] transform(InputRow inputRow) {

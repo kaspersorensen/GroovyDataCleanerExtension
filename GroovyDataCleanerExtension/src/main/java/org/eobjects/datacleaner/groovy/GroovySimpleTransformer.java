@@ -58,7 +58,7 @@ public class GroovySimpleTransformer implements Transformer {
     }
 
     public OutputColumns getOutputColumns() {
-        return new OutputColumns("Groovy output");
+        return new OutputColumns(String.class, "Groovy output");
     }
 
     public String[] transform(InputRow inputRow) {
