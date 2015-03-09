@@ -5,11 +5,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import junit.framework.TestCase;
 
-import org.eobjects.analyzer.data.InputColumn;
-import org.eobjects.analyzer.data.MockInputColumn;
-import org.eobjects.analyzer.data.MockInputRow;
-import org.eobjects.analyzer.job.concurrent.ThreadLocalOutputRowCollector;
-import org.eobjects.analyzer.job.concurrent.ThreadLocalOutputRowCollector.Listener;
+import org.datacleaner.api.InputColumn;
+import org.datacleaner.data.MockInputColumn;
+import org.datacleaner.data.MockInputRow;
+import org.datacleaner.job.concurrent.ThreadLocalOutputRowCollector;
+import org.datacleaner.job.concurrent.ThreadLocalOutputRowCollector.Listener;
 
 public class GroovyAdvancedTransformerTest extends TestCase {
 

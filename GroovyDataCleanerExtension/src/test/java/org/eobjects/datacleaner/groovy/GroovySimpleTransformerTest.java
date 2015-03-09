@@ -1,10 +1,10 @@
 package org.eobjects.datacleaner.groovy;
 
-import org.eobjects.analyzer.data.InputColumn;
-import org.eobjects.analyzer.data.MockInputColumn;
-import org.eobjects.analyzer.data.MockInputRow;
-
 import junit.framework.TestCase;
+
+import org.datacleaner.api.InputColumn;
+import org.datacleaner.data.MockInputColumn;
+import org.datacleaner.data.MockInputRow;
 
 public class GroovySimpleTransformerTest extends TestCase {
 

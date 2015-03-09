@@ -7,30 +7,30 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.eobjects.analyzer.beans.api.Categorized;
-import org.eobjects.analyzer.beans.api.Close;
-import org.eobjects.analyzer.beans.api.Configured;
-import org.eobjects.analyzer.beans.api.Description;
-import org.eobjects.analyzer.beans.api.Initialize;
-import org.eobjects.analyzer.beans.api.NumberProperty;
-import org.eobjects.analyzer.beans.api.OutputColumns;
-import org.eobjects.analyzer.beans.api.OutputRowCollector;
-import org.eobjects.analyzer.beans.api.Provided;
-import org.eobjects.analyzer.beans.api.StringProperty;
-import org.eobjects.analyzer.beans.api.Transformer;
-import org.eobjects.analyzer.beans.api.TransformerBean;
-import org.eobjects.analyzer.beans.categories.ScriptingCategory;
-import org.eobjects.analyzer.data.InputColumn;
-import org.eobjects.analyzer.data.InputRow;
-import org.eobjects.analyzer.util.ReflectionUtils;
+import org.datacleaner.api.Categorized;
+import org.datacleaner.api.Close;
+import org.datacleaner.api.Configured;
+import org.datacleaner.api.Description;
+import org.datacleaner.api.Initialize;
+import org.datacleaner.api.InputColumn;
+import org.datacleaner.api.InputRow;
+import org.datacleaner.api.NumberProperty;
+import org.datacleaner.api.OutputColumns;
+import org.datacleaner.api.OutputRowCollector;
+import org.datacleaner.api.Provided;
+import org.datacleaner.api.StringProperty;
+import org.datacleaner.api.Transformer;
+import org.datacleaner.components.categories.ScriptingCategory;
+import org.datacleaner.util.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@TransformerBean("Groovy transformer (advanced)")
+@Named("Groovy transformer (advanced)")
 @Categorized(ScriptingCategory.class)
 @Description("Perform almost any kind of data transformation with the use of the Groovy language. This transformer includes advanced options to map records to multiple (or no) output records and more.")
-public class GroovyAdvancedTransformer implements Transformer<String> {
+public class GroovyAdvancedTransformer implements Transformer {
 
     private static final Logger logger = LoggerFactory.getLogger(GroovyAdvancedTransformer.class);
 
@@ -80,7 +80,7 @@ public class GroovyAdvancedTransformer implements Transformer<String> {
         for (int i = 0; i < outputFields; i++) {
             names[i] = "Groovy output (" + (i + 1) + ")";
         }
-        return new OutputColumns(names);
+        return new OutputColumns(String.class, names);
     }
 
     public String[] transform(InputRow inputRow) {
