@@ -5,10 +5,9 @@
 		<artifactId>DataCleaner</artifactId>
 		<version>4.0-RC5</version>
 	</parent>
-	<groupId>org.datacleaner.extensions</groupId>
-	<artifactId>GroovyExtension</artifactId>
+	<groupId>org.eobjects.datacleaner.extensions</groupId>
+	<artifactId>DataCleaner-groovy</artifactId>
 	<version>2.4-SNAPSHOT</version>
-	<name>GroovyExtension</name>
 
 	<scm>
 		<url>https://github.com/kaspersorensen/GroovyDataCleanerExtension</url>
