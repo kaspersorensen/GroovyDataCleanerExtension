@@ -7,14 +7,14 @@
 	</parent>
 	<groupId>org.datacleaner.extensions</groupId>
 	<artifactId>GroovyExtension</artifactId>
-	<version>2.3</version>
+	<version>2.4-SNAPSHOT</version>
 	<name>GroovyExtension</name>
 
 	<scm>
 		<url>https://github.com/kaspersorensen/GroovyDataCleanerExtension</url>
 		<connection>scm:git:https://github.com/kaspersorensen/GroovyDataCleanerExtension.git</connection>
 		<developerConnection>scm:git:https://github.com/kaspersorensen/GroovyDataCleanerExtension.git</developerConnection>
-		<tag>GroovyExtension-2.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<build>
