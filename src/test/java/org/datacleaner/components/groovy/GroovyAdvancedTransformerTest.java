@@ -1,4 +1,4 @@
-package org.eobjects.datacleaner.groovy;
+package org.datacleaner.components.groovy;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import junit.framework.TestCase;
 
 import org.datacleaner.api.InputColumn;
+import org.datacleaner.components.groovy.GroovyAdvancedTransformer;
 import org.datacleaner.data.MockInputColumn;
 import org.datacleaner.data.MockInputRow;
 import org.datacleaner.job.concurrent.ThreadLocalOutputRowCollector;

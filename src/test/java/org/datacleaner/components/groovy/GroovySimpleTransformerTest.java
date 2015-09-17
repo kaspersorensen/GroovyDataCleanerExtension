@@ -1,8 +1,9 @@
-package org.eobjects.datacleaner.groovy;
+package org.datacleaner.components.groovy;
 
 import junit.framework.TestCase;
 
 import org.datacleaner.api.InputColumn;
+import org.datacleaner.components.groovy.GroovySimpleTransformer;
 import org.datacleaner.data.MockInputColumn;
 import org.datacleaner.data.MockInputRow;
 

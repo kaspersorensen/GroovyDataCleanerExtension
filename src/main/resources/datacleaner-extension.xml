@@ -2,6 +2,6 @@
 <extension xmlns="http://eobjects.org/datacleaner/extension/1.0">
 	<name>Groovy DataCleaner</name>
 	<description>Make your DataCleaner groovier with the Groovy language.</description>
-	<package>org.eobjects.datacleaner.groovy</package>
-	<icon>org/eobjects/datacleaner/groovy/GroovyExtension.png</icon>
+	<package>org.datacleaner.components.groovy</package>
+	<icon>org/datacleaner/components/groovy/GroovyExtension.png</icon>
 </extension>

@@ -1,4 +1,4 @@
-package org.eobjects.datacleaner.groovy;
+package org.datacleaner.components.groovy;
 
 import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyObject;
